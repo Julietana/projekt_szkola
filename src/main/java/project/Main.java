@@ -1,7 +1,17 @@
 package project;
 
+import project.application.Application;
+
 public class Main {
     public static void main(String []args) {
-        System.out.println("Hello world!");
+        Application application = new Application();
+        application.run();
     }
 }
+
+// garbage collector
+
+/*
+- pojedyncze wyswietlanie menu
+- obsluga nieistniejacych funkcjonalnosci
+ */
