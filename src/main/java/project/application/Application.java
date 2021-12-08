@@ -58,3 +58,7 @@ public class Application {
 }
 
 // 3 - usuwanie studenta
+/*
+git branch nazwa_galazki - komenda do tworzenia nowej galezi
+git checkout nazwa_galezi - przelaczenie sie na konkretna galaz
+ */
