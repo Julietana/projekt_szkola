@@ -12,6 +12,7 @@ public class Main {
 // garbage collector
 
 /*
-- pojedyncze wyswietlanie menu
 - obsluga nieistniejacych funkcjonalnosci
+- Teacher (dodawanie, wyswietlanie, usuwanie)
+- napisac po dwa testy jednostkowe do student + teacher (dodawanie + usuwanie)
  */
