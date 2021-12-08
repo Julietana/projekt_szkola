@@ -11,12 +11,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Application {
-    public void run() {
+    public void run() throws Exception{
         Scanner obj = new Scanner(System.in);
         StudentRepository studentRepository = new StudentRepository();
         StudentService studentService = new StudentService();
         TeacherRepository teacherRepository = new TeacherRepository();
         TeacherService teacherService = new TeacherService();
+
+        teacherService.loadTeachers();
 
         while (true) {
             System.out.println("1 - dodaj studenta");
@@ -34,30 +36,26 @@ public class Application {
 
             if (option.equals("1")) {
                 studentService.addStudent(studentList);
-            } else if (option.equals("2")){
+            } else if (option.equals("2")) {
                 teacherService.addTeacher(teacherList);
             } else if (option.equals("3")) {
                 studentService.printStudents(studentList);
-            }else if (option.equals("4")){
+            } else if (option.equals("4")) {
                 teacherService.printTeachers(teacherList);
-            } else if (option.equals("5")){
+            } else if (option.equals("5")) {
                 studentService.removeStudent(studentList);
-            } else if (option.equals("6")){
+            } else if (option.equals("6")) {
                 teacherService.removeTeacher(teacherList);
-            } else if (option.equals("7")) {
+            } else if (option.equals("exit")) {
                 studentService.saveStudents(studentList);
-            } else if (option.equals("8")){
                 teacherService.saveTeachers(teacherList);
-            }
-            else if (option.equals("exit")){
                 break;
             }
-
         }
     }
 }
 
-// 3 - usuwanie studenta
+// persystencja
 /*
 git branch nazwa_galazki - komenda do tworzenia nowej galezi
 git checkout nazwa_galezi - przelaczenie sie na konkretna galaz
