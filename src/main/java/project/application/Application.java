@@ -18,7 +18,7 @@ public class Application {
         TeacherRepository teacherRepository = new TeacherRepository();
         TeacherService teacherService = new TeacherService();
 
-        teacherService.loadTeachers();
+        teacherService.loadTeachers(teacherRepository.getTeacherList());
 
         while (true) {
             System.out.println("1 - dodaj studenta");
@@ -55,7 +55,7 @@ public class Application {
     }
 }
 
-// persystencja
+// zadanie: persystencja dla studentow
 /*
 git branch nazwa_galazki - komenda do tworzenia nowej galezi
 git checkout nazwa_galezi - przelaczenie sie na konkretna galaz

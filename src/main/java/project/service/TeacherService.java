@@ -62,22 +62,19 @@ public class TeacherService {
 
     }
 
-    public void loadTeachers() throws Exception {
+    public void loadTeachers(List<Teacher> teacherList) throws Exception {
         BufferedReader br = new BufferedReader(new FileReader("teacher.txt"));
         try {
-            StringBuilder sb = new StringBuilder();
             String line = br.readLine();
 
             while (line != null) {
-                sb.append(line);
-                sb.append(System.lineSeparator());
+                String[] splited = line.split("\\s+");
+                Teacher teacher = new Teacher(splited[0], splited[1], splited[2], Integer.parseInt(splited[3]));
+                teacherList.add(teacher);
                 line = br.readLine();
             }
-            String everything = sb.toString();
-            System.out.println(everything);
         } finally {
             br.close();
         }
-
     }
 }
