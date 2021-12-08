@@ -1,6 +1,9 @@
 package project.service;
 
 import project.model.Student;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,6 +31,30 @@ public class StudentService {
             if (studentList.get(i).getStudentNumber() == number){
                 studentList.remove(i);
             }
+        }
+    }
+
+    public void saveStudents(List<Student> studentList) {
+        FileWriter writer = null;
+
+        try {
+            writer = new FileWriter("students.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        for(Student student: studentList) {
+            try {
+                writer.write(student.toString() + System.lineSeparator());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

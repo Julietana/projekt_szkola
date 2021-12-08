@@ -7,7 +7,6 @@ import project.repository.TeacherRepository;
 import project.service.StudentService;
 import project.service.TeacherService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,9 +22,11 @@ public class Application {
             System.out.println("1 - dodaj studenta");
             System.out.println("2 - dodaj nauczyciela");
             System.out.println("3 - zobacz wszystkich wpisanych studentów");
-            System.out.println("4 - zaobacz wszystkich naucvzycieli");
+            System.out.println("4 - zaobacz wszystkich nauczycieli");
             System.out.println("5 - usuń studenta");
             System.out.println("6 - usuń nauczyciela");
+            System.out.println("7 - zapisz studentow");
+            System.out.println("8 - zapisz nauczycieli");
             System.out.println("exit - zakończ program");
             String option = obj.nextLine();
             List<Student> studentList = studentRepository.getStudentList();
@@ -43,7 +44,12 @@ public class Application {
                 studentService.removeStudent(studentList);
             } else if (option.equals("6")){
                 teacherService.removeTeacher(teacherList);
-            } else if (option.equals("exit")) {
+            } else if (option.equals("7")) {
+                studentService.saveStudents(studentList);
+            } else if (option.equals("8")){
+                teacherService.saveTeachers(teacherList);
+            }
+            else if (option.equals("exit")){
                 break;
             }
 

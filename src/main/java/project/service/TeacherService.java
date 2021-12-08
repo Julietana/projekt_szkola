@@ -1,6 +1,9 @@
 package project.service;
 
 import project.model.Teacher;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -34,4 +37,25 @@ public class TeacherService {
         }
     }
 
+    public void saveTeachers(List<Teacher> teacherList) {
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter("teacher.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        for (Teacher teacher : teacherList) {
+            try {
+                writer.write(teacher.toString() + System.lineSeparator());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
