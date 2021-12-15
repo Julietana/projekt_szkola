@@ -46,7 +46,7 @@ public class StudentService {
         FileWriter writer = null;
 
         try {
-            writer = new FileWriter("students.txt");
+            writer = new FileWriter("student.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }

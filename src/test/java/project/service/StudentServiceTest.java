@@ -50,7 +50,7 @@ class StudentServiceTest {
     {
         StudentService studentService = new StudentService();
         String firstName = "Jan";
-        
+
         // symulujemy konsole
         InputStream in = new ByteArrayInputStream(firstName.getBytes());
         System.setIn(in);

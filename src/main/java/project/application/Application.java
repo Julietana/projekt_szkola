@@ -21,8 +21,6 @@ public class Application {
         teacherService.loadTeachers(teacherRepository.getTeacherList());
         studentService.loadStudents(studentRepository.getStudentList());
 
-
-
         while (true) {
             System.out.println("1 - dodaj studenta");
             System.out.println("2 - dodaj nauczyciela");
@@ -34,7 +32,6 @@ public class Application {
             String option = obj.nextLine();
             List<Student> studentList = studentRepository.getStudentList();
             List<Teacher> teacherList = teacherRepository.getTeacherList();
-
 
             if (option.equals("1")) {
                 List list = studentService.studentParams(obj);
@@ -66,8 +63,14 @@ git branch nazwa_galazki - komenda do tworzenia nowej galezi
 git checkout nazwa_galezi - przelaczenie sie na konkretna galaz
  */
 
-
 /*
+- Wszystko na galazce "homework-unit-tests" i na koniec wystawiony pull request
 - obsluga niepoprawnych komend
 - poczytac o TDD ang. test - driven - development
+- przetestowac metode ze scannerem StudentParams
+- do przetestowania
+    * addTeacher
+    * removeTeacher, removeStudent
+    * saveTeacher, saveStudent (google: unit tests with files java)
+    ** problem z testami na plikach "produkcyjnych" -> inna nazwa pliku w testach
  */
