@@ -37,14 +37,9 @@ public class Application {
 
 
             if (option.equals("1")) {
-                System.out.println("Podaj imię studenta: ");
-                String firstName = obj.nextLine();
-                System.out.println("Podaj nazwisko studenta: ");
-                String secondName = obj.nextLine();
-                System.out.println("Podaj numer studenta: ");
-                Integer studentNumber = obj.nextInt();
-                Student student = new Student(firstName, secondName, studentNumber);
-                studentService.addStudent(studentList, student);
+                List list = studentService.studentParams(obj);
+                studentService.addStudent(studentList,
+                        new Student(String.valueOf(list.get(0)), String.valueOf(list.get(1)), (Integer)list.get(2)));
             } else if (option.equals("2")) {
                 teacherService.addTeacher(teacherList);
             } else if (option.equals("3")) {

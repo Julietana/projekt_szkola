@@ -8,6 +8,8 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.*;
 import org.junit.jupiter.api.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
 
 
@@ -41,6 +43,19 @@ class StudentServiceTest {
 
         wyoknuje asercje na to ze metoda editStudent zmienila jego imie na podane przez nas
          */
+    }
+
+    @Test
+    public void test_scan() throws Exception
+    {
+        StudentService studentService = new StudentService();
+        String firstName = "Jan";
+        
+        // symulujemy konsole
+        InputStream in = new ByteArrayInputStream(firstName.getBytes());
+        System.setIn(in);
+
+        assertEquals("Jan", studentService.test());
     }
 
     @Test

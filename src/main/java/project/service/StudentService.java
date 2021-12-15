@@ -15,6 +15,22 @@ public class StudentService {
         studentList.add(student);
     }
 
+    public List studentParams(Scanner obj) {
+        System.out.println("Podaj imię studenta: ");
+        String firstName = obj.nextLine();
+        System.out.println("Podaj nazwisko studenta: ");
+        String secondName = obj.nextLine();
+        System.out.println("Podaj numer studenta: ");
+        Integer studentNumber = obj.nextInt();
+
+        return List.of(firstName, secondName, studentNumber);
+    }
+
+    public String test(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
     public void removeStudent(List<Student> studentList){
         Scanner obj = new Scanner(System.in);
         System.out.println("Podaj numer studenta");
