@@ -1,7 +1,6 @@
 package project.service;
 
 import project.model.Student;
-import project.model.Teacher;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,19 +10,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentService {
-    public void printStudents(List<Student> studentList){
-        System.out.println(studentList);
-    }
 
-    public void addStudent(List<Student> studentList) {
-        Scanner obj = new Scanner(System.in);
-        System.out.println("Podaj imię studenta: ");
-        String firstName = obj.nextLine();
-        System.out.println("Podaj nazwisko studenta: ");
-        String secondName = obj.nextLine();
-        System.out.println("Podaj numer studenta: ");
-        Integer studentNumber = obj.nextInt();
-        studentList.add(new Student(firstName, secondName, studentNumber));
+    public void addStudent(List<Student> studentList, Student student) {
+        studentList.add(student);
     }
 
     public void removeStudent(List<Student> studentList){

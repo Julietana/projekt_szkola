@@ -21,6 +21,8 @@ public class Application {
         teacherService.loadTeachers(teacherRepository.getTeacherList());
         studentService.loadStudents(studentRepository.getStudentList());
 
+
+
         while (true) {
             System.out.println("1 - dodaj studenta");
             System.out.println("2 - dodaj nauczyciela");
@@ -33,14 +35,22 @@ public class Application {
             List<Student> studentList = studentRepository.getStudentList();
             List<Teacher> teacherList = teacherRepository.getTeacherList();
 
+
             if (option.equals("1")) {
-                studentService.addStudent(studentList);
+                System.out.println("Podaj imię studenta: ");
+                String firstName = obj.nextLine();
+                System.out.println("Podaj nazwisko studenta: ");
+                String secondName = obj.nextLine();
+                System.out.println("Podaj numer studenta: ");
+                Integer studentNumber = obj.nextInt();
+                Student student = new Student(firstName, secondName, studentNumber);
+                studentService.addStudent(studentList, student);
             } else if (option.equals("2")) {
                 teacherService.addTeacher(teacherList);
             } else if (option.equals("3")) {
-                studentService.printStudents(studentList);
+                System.out.println(studentList);
             } else if (option.equals("4")) {
-                teacherService.printTeachers(teacherList);
+                System.out.println(teacherList);
             } else if (option.equals("5")) {
                 studentService.removeStudent(studentList);
             } else if (option.equals("6")) {
@@ -64,4 +74,5 @@ git checkout nazwa_galezi - przelaczenie sie na konkretna galaz
 
 /*
 - obsluga niepoprawnych komend
+- poczytac o TDD ang. test - driven - development
  */
