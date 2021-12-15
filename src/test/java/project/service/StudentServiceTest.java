@@ -8,20 +8,54 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.*;
 import org.junit.jupiter.api.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.List;
+
 
 class StudentServiceTest {
 
     @Test
     @DisplayName("Add student test")
     void whenAddStudentListShouldNotBeEmpty() {
+        // given
         StudentRepository studentRepository = new StudentRepository();
+        StudentService studentService = new StudentService();
         Student student = new Student("Jan", "Kowalski", 123);
-        studentRepository.getStudentList().add(student);
+        List<Student> studentList = studentRepository.getStudentList();
 
+        // when
+        studentService.addStudent(studentList, student);
+
+        // then
         assertThat(studentRepository.getStudentList()).isNotEmpty();
         assertThat(studentRepository.getStudentList()).contains(student);
         assertThat(studentRepository.getStudentList()).endsWith(student);
         assertThat(studentRepository.getStudentList()).isNotNull();
+    }
+
+    @Test
+    void shouldChangeStudentName() {
+        /*
+        tworze studenta 1
+
+        wywoluje metode editStudent z serwisu
+
+        wyoknuje asercje na to ze metoda editStudent zmienila jego imie na podane przez nas
+         */
+    }
+
+    @Test
+    public void test_scan() throws Exception
+    {
+        StudentService studentService = new StudentService();
+        String firstName = "Jan";
+
+        // symulujemy konsole
+        InputStream in = new ByteArrayInputStream(firstName.getBytes());
+        System.setIn(in);
+
+        assertEquals("Jan", studentService.test());
     }
 
     @Test
@@ -30,5 +64,4 @@ class StudentServiceTest {
         assertEquals(5+2, 7);
         assumeFalse(5 < 1);
     }
-
 }
