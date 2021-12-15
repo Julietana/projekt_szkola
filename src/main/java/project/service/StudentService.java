@@ -1,7 +1,10 @@
 package project.service;
 
 import project.model.Student;
+import project.model.Teacher;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -55,6 +58,22 @@ public class StudentService {
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void loadStudents(List<Student> studentList) throws Exception {
+        BufferedReader br = new BufferedReader(new FileReader("students.txt"));
+        try {
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] splited = line.split("\\s+");
+                Student student = new Student(splited[0], splited[1], Integer.parseInt(splited[2]));
+                studentList.add(student);
+                line = br.readLine();
+            }
+        } finally {
+            br.close();
         }
     }
 }

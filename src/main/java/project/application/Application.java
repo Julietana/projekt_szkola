@@ -19,6 +19,7 @@ public class Application {
         TeacherService teacherService = new TeacherService();
 
         teacherService.loadTeachers(teacherRepository.getTeacherList());
+        studentService.loadStudents(studentRepository.getStudentList());
 
         while (true) {
             System.out.println("1 - dodaj studenta");
@@ -46,16 +47,19 @@ public class Application {
                 studentService.removeStudent(studentList);
             } else if (option.equals("6")) {
                 teacherService.removeTeacher(teacherList);
-            } else if (option.equals("exit")) {
+            } else if (option.equals("7")) {
                 studentService.saveStudents(studentList);
+            }else if (option.equals("8")){
                 teacherService.saveTeachers(teacherList);
+            } else if (option.equals("exit")) {
                 break;
             }
         }
     }
 }
-
-// zadanie: persystencja dla studentow
+//fffff
+// zadanie: persystencja dla studentow na osobnej galazce + po skonczeniu wystaw pull request
+// testy
 /*
 git branch nazwa_galazki - komenda do tworzenia nowej galezi
 git checkout nazwa_galezi - przelaczenie sie na konkretna galaz

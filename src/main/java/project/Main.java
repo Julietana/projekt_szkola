@@ -13,6 +13,6 @@ public class Main {
 
 /*
 - napisac po dwa testy jednostkowe do student + teacher (dodawanie + usuwanie)
-
+- dodatkowe : test na persystencje
 Next zajecia: wyjatki
  */
